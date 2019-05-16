@@ -5,7 +5,12 @@
 
 ​    `*`Node环境  puppeteer要求node在v6.4.0以上，本项目代码使用async/await要求v7.6以上！
 
+        项目还需设置cookies,来保持微博处于登录状态.在本地登录一次微博后,将cookie复制出来,放到weibo-api中的cookie-param.js中。
+        
+        可以使用谷歌插件EditThisCookie来获取cookie.
+
 ​    `*`可选择完整安装，由于项目使用Puppeteer，安装包较大及默认安装Chromium，可能安装比较慢。
+
 
 ```
 npm i
