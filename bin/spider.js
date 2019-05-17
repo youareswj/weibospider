@@ -24,7 +24,7 @@ rl.question('Please enter the keyword : ', (answer1) => {
 });
 rl.on('close',async () => {
     let weibo_url = `https://s.weibo.com/weibo/${keyword}?q=${keyword}&typeall=1&suball=1&timescope=custom:${sDate}:${eDate}&Refer=g&display=0`;
-    var tgName = '微博';    //excel sheet
+    var tgName = '微博';     //excel sheet name
     const browser = await pup.launch({
         headless: true,     //是否使用无头模式
         //executablePath: 'C:/Users/46949/AppData/Local/Google/Chrome/Application/chrome'  //chrome地址
@@ -34,9 +34,9 @@ rl.on('close',async () => {
     await page.setCookie(...cookie).then(() => {
         console.log('---设置cookie---')
     });
-    await page.waitFor(1000);
     await page.goto(weibo_url);
     console.log('---打开页面---');
+    await page.waitFor(2000);
     //获取评论总页数
     let pages = await page.evaluate(()=>{
         return document.querySelector('ul[class="s-scroll"]').children.length
